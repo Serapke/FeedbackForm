@@ -1,0 +1,35 @@
+<div class="container">
+	<h1>Register User</h1>
+	<%= form_for(@user) do |f| %>
+	  <% if @user.errors.any? %>
+	    <div id="error_explanation">
+	      <ul>
+	      <% @user.errors.full_messages.each do |message| %>
+	        <li class="error"><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+	  <div class="field">
+	    <%= f.label :name %>
+	    <%= f.text_field :name %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :email %>
+	    <%= f.email_field :email %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :phone %>
+	    <%= f.text_field :phone %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :password %>
+	    <%= f.password_field :password %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit "Submit", class: "submit" %>
+	  </div>
+	<% end %>
+
+</div>

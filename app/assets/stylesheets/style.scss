@@ -1,0 +1,58 @@
+body {
+	background: #f1f1f1;
+}
+blockquote {
+	border-left: 5px solid #aaa;
+	background: #f9f9f9;
+	box-shadow: 2px 2px 2px #888;
+	margin-bottom: 10px;
+
+	h5 {
+		margin: 0;
+	}
+}
+.sidebar {
+	a {
+		width: 120px;
+		display:inline-block;;
+		border: 1px solid #e5e5e5;
+		border-radius: 7px;
+		padding: 9px;
+		text-decoration: none;
+		color: #337ab7;
+		margin-bottom: 10px;
+
+		&:hover {
+			background: #d4d4d4;
+		}
+	}
+}
+.pagination  {
+	span, a, em {
+		border: 1px solid #e5e5e5;
+		border-radius: 7px;
+		padding: 9px;
+		text-decoration: none;
+		color: #337ab7;
+	}
+	a {
+		&:hover {
+			background: #d4d4d4;
+		}
+	}
+	em {
+		border: 0;
+		background: #0080ff;
+		color: #fff;
+	}
+}
+.jumbotron {
+	.new_comment {
+		background: #f8f8f8;
+		padding: 50px;
+		width: 400px;
+		textarea {
+			resize:none;
+		}
+	}
+}

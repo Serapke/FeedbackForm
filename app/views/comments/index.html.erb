@@ -1,0 +1,52 @@
+
+
+<p id="notice"><%= notice %></p>
+
+<div class="sidebar col-md-4">
+  <h2>Hello,
+  <%=
+    if current_admin
+      current_admin.username
+    elsif current_user
+      current_user.name
+    else
+      " Guest"
+    end
+  %>
+  </h2>
+  <%= link_to 'New Comment', new_comment_path %><br>
+  <% if current_admin || current_user %>
+    <% if current_admin %>
+      <%= link_to 'Show profile', admin_path(current_admin) %>
+    <% else %>
+      <%= link_to 'Show profile', user_path(current_user) %>
+    <% end %>
+      <br><%= link_to 'Log out', logout_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Log in', login_path %><br>
+    <%= link_to 'Register', new_user_path %>
+  <% end %>
+</div>
+<div class=" col-md-8">
+  <h3>Comments</h3>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <%= will_paginate %>
+    <% @comments.each do |comment| %>
+    <blockquote>
+      <div class="row">
+        <h6 class="text-left col-md-6 col-xs-6"><%= comment.created_at %></h6>
+        <h5 class="text-right col-md-6 col-xs-6"><%= link_to 'Show', comment %>
+
+          <% if current_admin %>
+            <%= link_to 'Edit', edit_comment_path(comment) %>
+            <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </h5>
+      </div>
+      <p class="lead"><%= comment.content %></p>
+      <footer><%= comment.author %></footer>
+    </blockquote>
+    <% end %>
+  <%= will_paginate %>
+</div>

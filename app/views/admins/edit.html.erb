@@ -1,0 +1,9 @@
+<% if current_admin %>
+	<h1>Editing Admin</h1>
+	<%= render 'form' %>
+	<br>
+	<%= link_to 'Show', @admin %> 
+	<%= link_to 'Back', admins_path %>
+<% else %>
+	<% require_admin %>
+<% end %>

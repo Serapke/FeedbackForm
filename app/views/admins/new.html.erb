@@ -1,0 +1,11 @@
+<% if current_admin %>
+
+<h1>New Admin</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', admins_path %>
+
+<% else %>
+	<% require_admin %>
+<% end %>
